@@ -1,5 +1,6 @@
 /*Problem Statement given down the program*/
-
+//Author : Infra
+//Status : Right Answer
 #include<bits/stdc++.h>
 using namespace std;
 int main()
