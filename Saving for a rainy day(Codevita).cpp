@@ -11,8 +11,8 @@ int main()
  float m1,p1,r1;
  double x1,b1;
 
-//cin>>p>>m>>R;
-p=p1=500;m=m1=25;R=r1=12.9898987987;
+ cin>>p>>m>>R;
+
  r=(R/12 +100)/100 ;
  for(int i=1;i<=m;i++)
  x+=p/pow(r,i);
