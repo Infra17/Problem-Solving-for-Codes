@@ -62,8 +62,8 @@ int main()
 {
     speed;
     int a,b,ii=0;
-    //cin>>a>>b;
-    a=32;b= 48;
+    cin>>a>>b;
+   // a=32;b= 48;
     vector<int> M = fun(a);
 
     vector<int> N = fun(b);
