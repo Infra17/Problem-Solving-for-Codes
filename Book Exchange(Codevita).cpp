@@ -18,7 +18,7 @@ ll fac(int n)
 int main()
 {
 
-    m[1]=1;m[0]=1;
+    m[1]=0;m[0]=1;
     ll n;
     cin>>n;
    /*
