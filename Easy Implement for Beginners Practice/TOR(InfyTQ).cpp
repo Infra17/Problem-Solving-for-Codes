@@ -2,23 +2,51 @@
 using namespace std;
 string s;
 int n;
-int fun(int i,int sum1,int sum2)
+bool ch;
+int fun(int i,int num)
 {
-    if(i==s.length()) return max(sum1,sum2);
-    if(s[i]=='0') return fun(i+1,sum1*10,sum2*10);
-    if(s[i]=='2') return fun(i+1,sum1*10 + 1,sum2*10+1);
+    if(i==s.length()) return num;//cout<<num<<endl;
+    if(ch)  return fun(i+1,num*10);
+
+    if(s[i]=='0') return fun(i+1,num*10);
+    if(s[i]=='2') return fun(i+1,num*10 + 1);
     
-    if(i==0) return fun(i+1,sum1*10+2,sum2*10+2);
-    return min(fun(i+1,sum1*10,sum2*10+1),fun(i+1,sum1*10+1,sum2*10));
-
+    if(i==0) return fun(i+1,2);
+    ch=true;
+    return fun(i+1,num*10+1);
+ 
 }
-
+ 
 int main()
 {
     cin>>n;
+    ch=false;
     cin>>s;
-    cout<<fun(0,0,0);
+    cout << fun(0,0);
 }
+
+
+/*
+#Python Code:
+ch=False
+n=int(input())
+s=input()
+def fun(i,num,ch):
+    if i==n:
+        return num 
+    if ch:
+        return fun(i+1,num*10,ch)
+    if s[i]=='0':
+        return fun(i+1,num*10,ch)
+    if s[i]=='2':
+        return fun(i+1,num*10+1,ch)
+    if i==0:
+        return fun(i+1,2,ch)
+    ch=True
+    return fun(i+1,num*10+1,ch)
+    
+print(fun(0,0,ch))
+*/
 
 /*
 TOR
