@@ -1,17 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 int ans;
-unordered_map<string,int> m;
+unordered_map<int,int> m;
 void func(int a,int l,string s,int z,int p)
 {
     if(s!="")
-    if(a>=stoi(s) && m[s]==0) 
+    if(a>=stoi(s) && m[stoi(s)]==0)
     {
-        //cout<<s<<endl;
-    m[s]==1;
+    //cout<<stoi(s)<<endl;
+    m[stoi(s)]=1;
     ans++;}
     if(z==l) {
-     return; 
+     return;
     }
     for(int i=p;i>=0;i--)
     func(a,l,s+to_string(i),z+1,i);
