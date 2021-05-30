@@ -21,6 +21,30 @@ int main()
     cout<<ans;
 }
 
+
+/*
+#Python Code:
+from collections import defaultdict
+m=defaultdict(int)
+s=input()
+k=int(input())
+t=s
+s=sorted(s)
+print(s)
+s=s[len(s)-k:]
+print(s)
+ans=""
+for i in s:
+    m[i]+=1
+for i in t:
+    if m[i]:
+        m[i]-=1
+    else:
+        ans+=i
+
+print(ans)
+*/
+
 /*
 Smallest Number
 
