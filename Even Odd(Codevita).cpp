@@ -8,52 +8,51 @@
 using namespace std;
 typedef long long int lld;
 #define mod 1000000007
-int dp[10000];
-int fact(int n)
-{
-    if(dp[n]) return dp[n];
-    if(n==0) return 1;
-    if(n==1) return dp[n]=1;
-    
-    return dp[n]=n*fact(n-1) %mod;
-}
 
-int comb(int n,int p)
+long e_sum(long m,long n,long K,long N)
 {
-    return (int)(fact(n)/(fact(n-p)*fact(p))) ;
-}
-
-int main()
-{
-    int o,e,h,l,k,K;
-    cin>>l>>h>>k;K=k;
-    int diff=h-l+1;
-    if(diff%2==0)
+    if(K==1)
     {
-        o=diff/2;
-        e=o;
+       return n;
     }
     else
     {
-        if(l%2==0)
+        return (N-(m-n)*e_sum(m,n,K-1,N)%(1000000007));
+    }
+}
+int main()
+{
+    long low,high,K,m,n,diff,Out,N,i;
+    scanf("%ld",&low);
+    scanf("%ld",&high);
+    scanf("%ld",&K);
+    diff=high-low+1;
+    if(diff%2==0)
+    {
+        m=diff/2;
+        n=m;
+    }
+    else
+    {
+        if(low%2==0)
         {
-            o=(diff-1)/2;
-            e=o+1;
+            m=(diff-1)/2;
+            n=m+1;
         }
         else
         {
-            o=(diff+1)/2;
-            e=o-1;
+            m=(diff+1)/2;
+            n=m-1;
         }
     }
-    int ans=0,i=0;
-    while(i<=k)
+    N=m;
+    for(i=0;i<K-1;i++)
     {
-        ans+=comb(K,i)*((int)pow(e,k-i)% mod)*((int)pow(o,i) % mod);
-        i+=2;
+        N=(N*(m+n))%1000000007;
     }
-    
-    cout<<ans%mod;
+    Out=e_sum(m,n,K,N)%1000000007;
+    printf("%ld",Out);
+    return 0;
 }
 
 /*
