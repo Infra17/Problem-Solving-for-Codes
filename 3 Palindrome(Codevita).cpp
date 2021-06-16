@@ -29,7 +29,7 @@ int main()
     {
         s1=s.substr(0,i);
         if(pali(s1))
-            for(int j=1;j<l-1-i;j++)
+            for(int j=1;j<l-i;j++)
         {
             s2=s.substr(i,j);s3=s.substr(i+j,l-i-j);
             if(pali(s2)&&pali(s3))
