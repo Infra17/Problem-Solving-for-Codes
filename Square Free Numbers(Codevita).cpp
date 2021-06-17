@@ -9,38 +9,40 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool IsPrime(int i) //The function to see if a number is prime or not
+list<int> Prime;
+
+bool IsPrime(int i)
 {
-    if(i%2==0 && i!=2) //If the number is even, not prime
-        return false;
-    else
-    for (int j=3;j<sqrt(i);j+=2)
-    {
-        if(i%j==0)
-            return false;
-    }
-    return true;
+	for(auto j:Prime)
+	{
+		if(j>sqrt(i)) break;
+		if(i%j==0) return false;
+	}
+	Prime.push_back(i);
+	return true;
 }
 
 
 int main()
 {
-	int N,c=0; //N is the given number,c is the counter to count how many prime numbers N is divisible by
-	cin>>N; //Taking the input for N
-	for(int i=2;i<sqrt(N);i++)
+	int N,c=0; //c is Count of Prime Factors
+	cin>>N;
+	Prime.push_back(2);
+	if((N&1)==0)
     {
-        if(IsPrime(i))
+        c++;
+		while((N&1)==0)
+        {N>>=1;}
+     }
+	for(int i=3;i<=(N);i+=2)
+	if(IsPrime(i) && N%i==0)
         {
-            if(N%i==0)
-            {
-                c++;
-                N=N/i; //Now we can decrease the value of N by the factor of i, it will take less numbers into consideration
-            }
+			//cout<<i<<endl; // Prints the Prime Factors
+            c++;
+			while(N%i==0)
+            {N=N/i;}
         }
-    }
-
-
-	cout<<pow(2,c) - 1;  //2^n - 1
+	cout<<((1<<c)) - 1;  //2^n - 1
 }
 /*
 Square Free Numbers
