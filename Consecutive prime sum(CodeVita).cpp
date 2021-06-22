@@ -8,7 +8,7 @@ int main()
 {
     cin>>n;
     prime[0]=1;
-    for(int p = 2; p <= n; p++)
+    for(int p = 2; p*p <= n; p++)
     {
         if (prime[p] == 0)
         {
